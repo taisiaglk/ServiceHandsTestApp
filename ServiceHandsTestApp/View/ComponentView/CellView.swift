@@ -12,21 +12,33 @@ struct CellView: View {
     
     let cellModel: CellModel
     
-    // var cellDescription: cellModel
-    
     var body: some View {
         HStack(spacing: 16) {
             Image(cellModel.imageType)
                 .resizable()
-                .frame(width: 40)
+                .frame(width: 40, height: 40)
+                .overlay {
+                    Text(cellModel.imageEmoji)
+                }
+                .padding(.leading, 16)
             
-            VStack(alignment: .leading, spacing: 16) {
+            VStack(alignment: .leading, spacing: 8) {
                 Text(cellModel.cellType.rawValue)
                     .font(.system(size: 20))
                     .fontWeight(.bold)
                 Text(cellModel.cellDescription)
                     .font(.system(size: 14))
             }
+            .padding(.top, 16)
+            .padding(.bottom, 9)
+            .padding(.leading, 0)
+            
+            
+            Spacer()
         }
+        .background(Color(.white))
+        .cornerRadius(8)
+        .padding(.horizontal, 16)
+        
     }
 }

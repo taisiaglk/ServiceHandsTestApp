@@ -8,13 +8,15 @@
 import Foundation
 
 enum CellType: String {
-    case dead
-    case alive
-    case newLife
+    case dead = "Мёртвая"
+    case alive = "Живая"
+    case newLife = "Жизнь"
 }
 
-struct CellModel {
+struct CellModel: Identifiable {
+    var id = UUID()
     let imageType: String
+    let imageEmoji: String
     let cellType: CellType
     let cellDescription: String
 }
