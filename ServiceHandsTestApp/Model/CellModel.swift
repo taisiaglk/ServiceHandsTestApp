@@ -13,7 +13,7 @@ enum CellType: String {
     case newLife = "Жизнь"
 }
 
-struct CellModel: Identifiable {
+struct CellModel: Identifiable, Equatable, Hashable {
     var id = UUID()
     let imageType: String
     let imageEmoji: String

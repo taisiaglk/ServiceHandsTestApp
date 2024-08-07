@@ -59,9 +59,9 @@
 		00DBE6242C62677400408BB3 /* ServiceHandsTestApp */ = {
 			isa = PBXGroup;
 			children = (
-				00DBE63A2C62B49500408BB3 /* ViewModel */,
-				00DBE6392C62B48E00408BB3 /* View */,
 				00DBE6362C6279CF00408BB3 /* Model */,
+				00DBE6392C62B48E00408BB3 /* View */,
+				00DBE63A2C62B49500408BB3 /* ViewModel */,
 				00DBE6252C62677400408BB3 /* ServiceHandsTestAppApp.swift */,
 				00DBE6292C62677500408BB3 /* Assets.xcassets */,
 				00DBE62B2C62677500408BB3 /* Preview Content */,

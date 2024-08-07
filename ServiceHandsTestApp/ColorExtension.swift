@@ -10,6 +10,8 @@ import UIKit
 
 extension Color {
     static let buttonColor = Color.adaptive(light: "#5A3472", dark: "#5A3472")
+    static let purpleBackgroundColor = Color.adaptive(light: "#2A0549", dark: "#2A0549")
+    static let blackBackgroundColor = Color.adaptive(light: "#030205", dark: "#030205")
 }
 
 extension Color {

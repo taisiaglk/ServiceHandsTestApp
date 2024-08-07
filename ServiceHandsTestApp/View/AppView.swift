@@ -18,13 +18,23 @@ struct AppView: View {
                 .fontWeight(.bold)
                 .foregroundColor(.white)
             
-            ScrollView(.vertical, showsIndicators: false) {
-                VStack(alignment: .leading) {
-                    ForEach(viewModel.cells) { cell in
-                        CellView(cellModel: CellModel(imageType: cell.imageType, imageEmoji: cell.imageEmoji, cellType: cell.cellType, cellDescription: cell.cellDescription))
+            ScrollViewReader { proxy in
+                ScrollView(.vertical, showsIndicators: false) {
+                    VStack(alignment: .leading) {
+                        ForEach(viewModel.cells) { cell in
+                            CellView(cellModel: CellModel(imageType: cell.imageType, imageEmoji: cell.imageEmoji, cellType: cell.cellType, cellDescription: cell.cellDescription))
+                                .id(cell.id)
+                        }
+                    }
+                    
+                }
+                .onChange(of: viewModel.cells) { _ in
+                    if let lastCell = viewModel.cells.last {
+                        withAnimation {
+                            proxy.scrollTo(lastCell.id, anchor: .bottom)
+                        }
                     }
                 }
-                
             }
             
             Spacer()
@@ -42,8 +52,10 @@ struct AppView: View {
                     .padding(.horizontal, 14)
             })
         }
-        .background(Color(.purple))
-        
+        .background(
+            LinearGradient(gradient: Gradient(colors: [.purpleBackgroundColor, .blackBackgroundColor]), startPoint: .top, endPoint: .bottom)
+                .edgesIgnoringSafeArea(.all)
+        )
     }
 }
 
