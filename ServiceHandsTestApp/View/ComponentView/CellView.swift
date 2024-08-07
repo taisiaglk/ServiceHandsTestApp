@@ -31,8 +31,6 @@ struct CellView: View {
             }
             .padding(.top, 16)
             .padding(.bottom, 9)
-            .padding(.leading, 0)
-            
             
             Spacer()
         }

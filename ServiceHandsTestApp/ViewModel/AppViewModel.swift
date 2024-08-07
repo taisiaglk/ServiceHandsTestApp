@@ -29,12 +29,18 @@ final class AppViewModel: ObservableObject  {
             break
         }
         
-        let newCell = CellModel(imageType: newCellType == .alive ? "alive" : "dead", imageEmoji: newCellType == .alive ? "\u{1F4A5}" : "\u{1F480}", cellType: newCellType, cellDescription: newCellType == .alive ? "и шевелится!" : "или прикидывается")
+        let newCell = CellModel(imageType: newCellType == .alive ? "alive" : "dead", 
+                                imageEmoji: newCellType == .alive ? "\u{1F4A5}" : "\u{1F480}",
+                                cellType: newCellType,
+                                cellDescription: newCellType == .alive ? "и шевелится!" : "или прикидывается")
         
         cells.append(newCell)
         
         if aliveCellCnt == 3 {
-            cells.append(CellModel(imageType: "newLife", imageEmoji: "\u{1F423}", cellType: .newLife, cellDescription: "Ку-ку!"))
+            cells.append(CellModel(imageType: "newLife", 
+                                   imageEmoji: "\u{1F423}",
+                                   cellType: .newLife,
+                                   cellDescription: "Ку-ку!"))
             aliveCellCnt = 0
         } else if deadCellCnt == 3 {
             if let index = cells.lastIndex(where: { $0.cellType == .newLife }) {

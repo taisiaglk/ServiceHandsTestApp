@@ -18,15 +18,15 @@ struct AppView: View {
                 .fontWeight(.bold)
                 .foregroundColor(.white)
             
-            ScrollViewReader { proxy in
-                ScrollView(.vertical, showsIndicators: false) {
-                    VStack(alignment: .leading) {
-                        ForEach(viewModel.cells.reversed()) { cell in
-                            CellView(cellModel: CellModel(imageType: cell.imageType, imageEmoji: cell.imageEmoji, cellType: cell.cellType, cellDescription: cell.cellDescription))
-                        }
+            
+            ScrollView(.vertical, showsIndicators: false) {
+                VStack(alignment: .leading) {
+                    ForEach(viewModel.cells.reversed()) { cell in
+                        CellView(cellModel: CellModel(imageType: cell.imageType, imageEmoji: cell.imageEmoji, cellType: cell.cellType, cellDescription: cell.cellDescription))
                     }
                 }
             }
+            .padding(.top, 22)
             
             Spacer()
             
