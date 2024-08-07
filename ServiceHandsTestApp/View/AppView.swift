@@ -21,17 +21,8 @@ struct AppView: View {
             ScrollViewReader { proxy in
                 ScrollView(.vertical, showsIndicators: false) {
                     VStack(alignment: .leading) {
-                        ForEach(viewModel.cells) { cell in
+                        ForEach(viewModel.cells.reversed()) { cell in
                             CellView(cellModel: CellModel(imageType: cell.imageType, imageEmoji: cell.imageEmoji, cellType: cell.cellType, cellDescription: cell.cellDescription))
-                                .id(cell.id)
-                        }
-                    }
-                    
-                }
-                .onChange(of: viewModel.cells) { _ in
-                    if let lastCell = viewModel.cells.last {
-                        withAnimation {
-                            proxy.scrollTo(lastCell.id, anchor: .bottom)
                         }
                     }
                 }
